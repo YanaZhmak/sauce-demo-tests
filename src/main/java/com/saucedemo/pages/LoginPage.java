@@ -24,7 +24,7 @@ public class LoginPage extends BasePage {
 
     public ProductsPage goToProductsPage() {
         click(loginButton);
-        return new ProductsPage();
+        return new ProductsPage(driver);
     }
 
     public ProductsPage loginAs(String username, String password) {

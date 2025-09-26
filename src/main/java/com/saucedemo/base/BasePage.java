@@ -3,6 +3,7 @@ package com.saucedemo.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.decorators.WebDriverDecorator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,5 +39,9 @@ public class BasePage {
 
     protected boolean isDisplayed(By locator) {
         return findElement(locator).isDisplayed();
+    }
+
+    protected WebElement waitForVisible(By locator, Duration timeout) {
+        return new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
