@@ -9,6 +9,7 @@ public class LoginPage extends BasePage {
     private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
     private By loginButton = By.id("login-button");
+    private By errorMessage = By.xpath("//div[@class='error-message-container error']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -33,4 +34,7 @@ public class LoginPage extends BasePage {
         return goToProductsPage();
     }
 
+    public String getErrorMessage() {
+        return getText(errorMessage);
+    }
 }
